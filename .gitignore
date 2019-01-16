@@ -9,7 +9,9 @@ buildNumber.properties
 .mvn/timing.properties
 .DS_Store
 .idea/workspace.xml
-
+.classpath
+.project
+.settings/
 
 # Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
 !/.mvn/wrapper/maven-wrapper.jar
