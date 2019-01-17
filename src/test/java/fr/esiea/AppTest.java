@@ -21,7 +21,7 @@ public class AppTest
 
     }
     @Test
-    public void testSomething() {
+    public void appleTest() {
         SupermarketCatalog catalog = new FakeCatalog();
         Product toothbrush = new Product("toothbrush", ProductUnit.Each);
         catalog.addProduct(toothbrush, 0.99);
