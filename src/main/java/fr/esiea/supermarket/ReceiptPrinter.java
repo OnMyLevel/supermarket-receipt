@@ -1,8 +1,12 @@
-package fr.esiea;
+package fr.esiea.supermarket;
 
-import fr.esiea.model.*;
+import fr.esiea.supermarket.model.Discount;
+import fr.esiea.supermarket.model.ProductUnit;
+import fr.esiea.supermarket.model.ReceiptItem;
 
 import java.util.Locale;
+
+
 
 public class ReceiptPrinter {
 
@@ -16,7 +20,7 @@ public class ReceiptPrinter {
         this.columns = columns;
     }
 
-    public String printReceipt(Receipt receipt) {
+    public String printReceipt(fr.esiea.supermarket.model.Receipt receipt) {
         StringBuilder result = new StringBuilder();
         for (ReceiptItem item : receipt.getItems()) {
             String price = String.format(Locale.UK, "%.2f", item.getTotalPrice());
