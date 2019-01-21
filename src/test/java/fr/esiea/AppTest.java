@@ -35,7 +35,10 @@ public class AppTest
         teller.addSpecialOffer(SpecialOfferType.TenPercentDiscount, toothbrush, 10.0);
 
         Receipt receipt = teller.checksOutArticlesFrom(cart);
+        
         Assertions.assertThat("4.975").isEqualTo(receipt.getTotalPrice().toString());
-        // Todo: complete this test
+        Assertions.assertThat(0).isEqualTo(receipt.getDiscounts().size());
+        Assertions.assertThat(1).isEqualTo(receipt.getItems().size());
+    // Todo: complete this test
     }
 }
