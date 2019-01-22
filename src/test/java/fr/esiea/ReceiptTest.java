@@ -2,7 +2,7 @@ package fr.esiea;
 
 import fr.esiea.supermarket.model.*;
 import org.assertj.core.api.Assertions;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 
 public class ReceiptTest {
@@ -64,6 +64,24 @@ public class ReceiptTest {
         Receipt receipt = teller.checksOutArticlesFrom(cart);
 
         Assertions.assertThat(1).isEqualTo(receipt.getItems().size());
+        // Todo: complete this test
+    }
+
+    @Test
+    public void receiptDiscountTest() {
+
+        SupermarketCatalog catalog = new FakeCatalog();
+        Product toothbrush = new Product("toothbrush", ProductUnit.Each);
+        catalog.addProduct(toothbrush, 0.99);
+        Discount testDiscount = new Discount(toothbrush,"solde",0.99);
+        ShoppingCart cart = new ShoppingCart();
+
+        Teller teller = new Teller(catalog);
+        teller.addSpecialOffer(SpecialOfferType.TenPercentDiscount, toothbrush, 10.0);
+
+        Receipt receipt = teller.checksOutArticlesFrom(cart);
+        receipt.addDiscount(testDiscount);
+        Assertions.assertThat(true).isEqualTo(receipt.getDiscounts().contains(testDiscount));
         // Todo: complete this test
     }
 }
