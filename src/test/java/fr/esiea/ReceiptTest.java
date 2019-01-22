@@ -1,8 +1,9 @@
 package fr.esiea;
 
-import fr.esiea.model.*;
+import fr.esiea.supermarket.model.*;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
+
 
 public class ReceiptTest {
 
