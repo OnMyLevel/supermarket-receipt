@@ -45,10 +45,7 @@ public class ReceiptItemTest {
         ReceiptItem ri = new ReceiptItem(new Product("Salade", ProductUnit.Kilo), 1, 0.50, 1 );
         ReceiptItem ri2 = new ReceiptItem(new Product("Stylo", ProductUnit.Each), 1, 2.50, 1 );
         Assertions.assertThat(false).isEqualTo(ri.equals(ri2));
-
     }
-
-
 
     @Test
     public void getTotalPrice(){
@@ -65,7 +62,6 @@ public class ReceiptItemTest {
         Product p = new Product("Rasoir", ProductUnit.Each);
         ReceiptItem ri = new ReceiptItem(p, 2, 4.11, 8.22 );
         Assertions.assertThat(2.0).isEqualTo(ri.getQuantity());
-
     }
 
     @Test
@@ -78,6 +74,16 @@ public class ReceiptItemTest {
 
         Assertions.assertThat(false).isEqualTo(ri.equals(ri2));
         Assertions.assertThat(ri.hashCode()).isNotEqualTo(ri2.hashCode());
+
+    }
+
+    @Test
+    public void compareNullReceiptItemTest(){
+        Product p1 = new Product("Rasoir", ProductUnit.Each);
+        ReceiptItem ri = new ReceiptItem(p1,2,4,8);
+
+        Assertions.assertThat(false).isEqualTo(ri.equals(null));
+        Assertions.assertThat(ri.hashCode()).isNotEqualTo(null);
 
     }
 
