@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 public class ReceiptPrinterTest {
 
-    /*@Test
+    @Test
     public void receiptPrinterTest() {
 
         SupermarketCatalog catalog = new FakeCatalog();
@@ -39,7 +39,7 @@ public class ReceiptPrinterTest {
                 +"Total:                              3.50";
         Assertions.assertThat(expectedPrint).isEqualTo(printerDefault.printReceipt(receipt));
     }
-    */
+
     @Test
     public void defaultReceiptPrinterTest() {
 
