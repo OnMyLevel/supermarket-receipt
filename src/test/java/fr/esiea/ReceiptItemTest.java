@@ -34,8 +34,17 @@ public class ReceiptItemTest {
 
         Product p = new Product("Salade", ProductUnit.Kilo);
         ReceiptItem ri = new ReceiptItem(new Product("Salade", ProductUnit.Kilo), 1, 0.50, 1 );
-       //ReceiptItem ri2 = new ReceiptItem(new Product("Salade", ProductUnit.Kilo), 1, 0.50, 1 );
         Assertions.assertThat(true).isEqualTo(ri.equals(ri));
+
+    }
+
+    @Test
+    public void notEqualTest(){
+
+        Product p = new Product("Salade", ProductUnit.Kilo);
+        ReceiptItem ri = new ReceiptItem(new Product("Salade", ProductUnit.Kilo), 1, 0.50, 1 );
+        ReceiptItem ri2 = new ReceiptItem(new Product("Stylo", ProductUnit.Each), 1, 2.50, 1 );
+        Assertions.assertThat(false).isEqualTo(ri.equals(ri2));
 
     }
 
@@ -46,7 +55,6 @@ public class ReceiptItemTest {
 
         Product p = new Product("Rasoir", ProductUnit.Each);
         ReceiptItem ri = new ReceiptItem(p, 2, 4.11, 8.22 );
-        //System.out.println(ri.getPrice());
         Assertions.assertThat(8.22).isEqualTo(ri.getTotalPrice());
 
     }
@@ -56,16 +64,14 @@ public class ReceiptItemTest {
 
         Product p = new Product("Rasoir", ProductUnit.Each);
         ReceiptItem ri = new ReceiptItem(p, 2, 4.11, 8.22 );
-        //System.out.println(ri.getPrice());
         Assertions.assertThat(2.0).isEqualTo(ri.getQuantity());
 
     }
 
     @Test
-    public void CompareReceiptItemTest(){
+    public void compareReceiptItemTest(){
         Product p1 = new Product("Rasoir", ProductUnit.Each);
         Product p2 = new Product("salade", ProductUnit.Each);
-
 
         ReceiptItem ri = new ReceiptItem(p1,2,4,8);
         ReceiptItem ri2 = new ReceiptItem(p2,2,4,8);
@@ -74,4 +80,6 @@ public class ReceiptItemTest {
         Assertions.assertThat(ri.hashCode()).isNotEqualTo(ri2.hashCode());
 
     }
+
+
 }
