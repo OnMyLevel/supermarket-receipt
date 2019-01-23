@@ -37,7 +37,6 @@ public class ReceiptPrinterTest {
                 +"3 for 2(Rasoir)                    -1.50\n"
                 +"\n"
                 +"Total:                              3.50";
-        //System.out.println(printerDefault.printReceipt(receipt));
         Assertions.assertThat(expectedPrint).isEqualTo(printerDefault.printReceipt(receipt));
     }
 }
