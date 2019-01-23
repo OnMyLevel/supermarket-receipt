@@ -29,6 +29,16 @@ public class ReceiptItemTest {
 
     }
 
+    @Test
+    public void equalTest(){
+
+        Product p = new Product("Salade", ProductUnit.Kilo);
+        ReceiptItem ri = new ReceiptItem(new Product("Salade", ProductUnit.Kilo), 1, 0.50, 1 );
+        ReceiptItem ri2 = new ReceiptItem(new Product("Salade", ProductUnit.Kilo), 1, 0.50, 1 );
+        Assertions.assertThat(true).isEqualTo(ri.equals(ri2));
+
+    }
+
 
 
     @Test

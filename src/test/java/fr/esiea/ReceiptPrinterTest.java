@@ -33,11 +33,11 @@ public class ReceiptPrinterTest {
             "Rasoir                              4.50\n"
                 +"  1.50 * 3\n"
                 +"Salade                              0.50\n"
-                +"3 for 2(Rasoir)                    -1.50\n"
                 +"1.0% off(Salade)                   -0.01\n"
+                +"3 for 2(Rasoir)                    -1.50\n"
                 +"\n"
                 +"Total:                              3.50";
-
+        //System.out.println(printerDefault.printReceipt(receipt));
         Assertions.assertThat(expectedPrint).isEqualTo(printerDefault.printReceipt(receipt));
     }
 }
