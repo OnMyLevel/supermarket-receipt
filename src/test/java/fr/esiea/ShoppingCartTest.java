@@ -56,5 +56,19 @@ public class ShoppingCartTest {
         Assertions.assertNotNull(teller.toString());
     }
 
+    @Test
+    public void testDiscount() {
+        SupermarketCatalog catalog = new FakeCatalog();
+        Product rasoir = new Product("Rasoir", ProductUnit.Each);
+        catalog.addProduct(rasoir, 1.50);
+        ShoppingCart cart = new ShoppingCart();
+        cart.addItemQuantity(rasoir, 1);
+
+        Teller teller = new Teller(catalog);
+        Receipt receipt = teller.checksOutArticlesFrom(cart);
+        Assertions.assertNotNull(cart.toString());
+        Assertions.assertNotNull(teller.toString());
+    }
+
 
 }
