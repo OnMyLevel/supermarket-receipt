@@ -14,17 +14,14 @@ public class ReceiptItemTest {
         Product p = new Product("Rasoir", ProductUnit.Each);
         ReceiptItem ri = new ReceiptItem(p, 2, 4.11, 8.22 );
         Assertions.assertThat(4.11).isEqualTo(ri.getPrice());
-
     }
 
 
     @Test
     public void getProductTest(){
-
         Product p = new Product("Salade", ProductUnit.Kilo);
         ReceiptItem ri = new ReceiptItem(new Product("Salade", ProductUnit.Kilo), 1, 0.50, 1 );
         Assertions.assertThat(p).isEqualTo(ri.getProduct());
-
     }
 
     @Test
@@ -32,7 +29,6 @@ public class ReceiptItemTest {
         Product p = new Product("Salade", ProductUnit.Kilo);
         ReceiptItem ri = new ReceiptItem(new Product("Salade", ProductUnit.Kilo), 1, 0.50, 1 );
         Assertions.assertThat(true).isEqualTo(ri.equals(ri));
-
     }
 
     @Test
@@ -48,7 +44,6 @@ public class ReceiptItemTest {
         Product p = new Product("Rasoir", ProductUnit.Each);
         ReceiptItem ri = new ReceiptItem(p, 2, 4.11, 8.22 );
         Assertions.assertThat(8.22).isEqualTo(ri.getTotalPrice());
-
     }
 
     @Test
@@ -66,7 +61,6 @@ public class ReceiptItemTest {
         ReceiptItem ri2 = new ReceiptItem(p2,2,4,8);
         Assertions.assertThat(false).isEqualTo(ri.equals(ri2));
         Assertions.assertThat(ri.hashCode()).isNotEqualTo(ri2.hashCode());
-
     }
 
     @Test
@@ -75,7 +69,6 @@ public class ReceiptItemTest {
         ReceiptItem ri = new ReceiptItem(p1,2,4,8);
         Assertions.assertThat(false).isEqualTo(ri.equals(null));
         Assertions.assertThat(ri.hashCode()).isNotEqualTo(null);
-
     }
 
     @Test
@@ -85,7 +78,6 @@ public class ReceiptItemTest {
         ReceiptItem ri2 = new ReceiptItem(p1,2,4,8);
         Assertions.assertThat(true).isEqualTo(ri.equals(ri2));
         Assertions.assertThat(ri.hashCode()).isEqualTo(ri2.hashCode());
-
     }
 
     @Test
@@ -95,8 +87,15 @@ public class ReceiptItemTest {
         String ri2 = new String("Recept");
         Assertions.assertThat(false).isEqualTo(ri.equals(ri2));
         Assertions.assertThat(ri.hashCode()).isNotEqualTo(ri2.hashCode());
-
     }
 
+    @Test
+    public void compareTwoObjectsEqualsTest(){
+        Product p1 = new Product("Rasoir", ProductUnit.Each);
+        ReceiptItem ri = new ReceiptItem(p1,2,4,8);
+        String ri2 = new String("Recept");
+        Assertions.assertThat(false).isEqualTo(ri.equals(ri2));
+        Assertions.assertThat(ri.hashCode()).isNotEqualTo(ri2.hashCode());
+    }
 
 }
