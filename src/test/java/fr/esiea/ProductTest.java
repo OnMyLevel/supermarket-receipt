@@ -49,7 +49,7 @@ public class ProductTest {
     public void  ObjectEqualNameTest(){
         String name = new String("Rasoir");
         Product rasoir = new Product(name, ProductUnit.Each);
-        Product rasoir2 = new Product(name, ProductUnit.Each);
+        Object rasoir2 = new Product(name, ProductUnit.Each);
         Assertions.assertThat(true).isEqualTo(rasoir.equals(rasoir2));
     }
 }
