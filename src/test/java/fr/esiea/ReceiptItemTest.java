@@ -92,8 +92,9 @@ public class ReceiptItemTest {
     @Test
     public void compareTwoObjectsEqualsTest(){
         Product p1 = new Product("Rasoir", ProductUnit.Each);
+        Product p2 = new Product("Salade", ProductUnit.Kilo);
         ReceiptItem ri = new ReceiptItem(p1,2,4,8);
-        String ri2 = new String("Recept");
+        ReceiptItem ri2 = new ReceiptItem(p2,2,4,8);
         Assertions.assertThat(false).isEqualTo(ri.equals(ri2));
         Assertions.assertThat(ri.hashCode()).isNotEqualTo(ri2.hashCode());
     }
