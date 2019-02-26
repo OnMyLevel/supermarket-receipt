@@ -1,12 +1,11 @@
-package fr.esiea;
-
-import fr.esiea.supermarket.model.Product;
-import fr.esiea.supermarket.model.SupermarketCatalog;
+package fr.esiea.supermarket.model
+    ;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class FakeCatalog implements SupermarketCatalog {
+
     private Map<String, Product> products = new HashMap<>();
     private Map<String, Double> prices = new HashMap<>();
 
@@ -20,4 +19,20 @@ public class FakeCatalog implements SupermarketCatalog {
     public double getUnitPrice(Product p) {
         return this.prices.get(p.getName());
     }
+
+    public Map<String, Product> getProducts() {
+        return products;
+    }
+
+    @Override
+    public void deleteProduct(String productName) {
+        this.products.remove(productName);
+    }
+
+    @Override
+    public Product getProduct(String nameProduct) {
+        return this.products.get(nameProduct);
+    }
+
 }
+

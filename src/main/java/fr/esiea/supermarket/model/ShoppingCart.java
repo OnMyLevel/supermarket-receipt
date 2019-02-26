@@ -12,7 +12,6 @@ public class ShoppingCart {
     private final List<ProductQuantity> items = new ArrayList<>();
     Map<Product, Double> productQuantities = new HashMap<>();
 
-
     List<ProductQuantity> getItems() {
         return new ArrayList<>(items);
     }
@@ -21,10 +20,9 @@ public class ShoppingCart {
         this.addItemQuantity(product, 1.0);
     }
 
-    Map<Product, Double> productQuantities() {
-        return productQuantities;
+    public void deleteItem(Product product) {
+        this.deleteItemQuantity(product, 1.0);
     }
-
 
     public void addItemQuantity(Product product, double quantity) {
         items.add(new ProductQuantity(product, quantity));
@@ -33,6 +31,23 @@ public class ShoppingCart {
         } else {
             productQuantities.put(product, quantity);
         }
+    }
+
+    public void deleteItemQuantity(Product product, double quantity) {
+        if (productQuantities.containsKey(product) &&
+            productQuantities.get(product) > 0 && productQuantities.get(product) >= quantity) {
+            if(productQuantities.get(product) - quantity == 0) {
+                productQuantities.remove(product);
+            }else {
+                productQuantities.put(product, productQuantities.get(product) - quantity);
+            }
+        } else {
+            System.out.println("se produits n'existe pas");
+        }
+    }
+
+    public Map<Product, Double> productQuantities() {
+        return productQuantities;
     }
 
     void handleOffers(Receipt receipt, Map<Product, Offer> offers, SupermarketCatalog catalog){

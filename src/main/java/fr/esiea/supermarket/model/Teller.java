@@ -6,8 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static fr.esiea.supermarket.model.offers.SpecialOfferType.TenPercentDiscount;
-
 public class Teller {
 
     private final SupermarketCatalog catalog;
@@ -15,6 +13,14 @@ public class Teller {
 
     public Teller(SupermarketCatalog catalog) {
         this.catalog = catalog;
+    }
+
+    public Offer deleteSpecialOffer(Product product){
+        return this.offers.remove(product);
+    }
+
+    public Map<Product, Offer> getOffers() {
+        return offers;
     }
 
     public void addSpecialOffer(SpecialOfferType offerType, Product product, double argument) {
