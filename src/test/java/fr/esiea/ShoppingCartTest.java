@@ -75,11 +75,13 @@ public class ShoppingCartTest {
     public void testDeleteItem() {
         SupermarketCatalog catalog = new FakeCatalog();
         Product rasoir = new Product("Rasoir", ProductUnit.Each);
+        Product boot = new Product("Boot", ProductUnit.Each);
         catalog.addProduct(rasoir, 1.50);
         ShoppingCart cart = new ShoppingCart();
         cart.addItemQuantity(rasoir, 2);
         cart.deleteItem(rasoir);
         cart.deleteItemQuantity(rasoir,1);
+        cart.deleteItemQuantity(boot,0);
     }
 
 
