@@ -2,6 +2,7 @@ package fr.esiea;
 
 import fr.esiea.supermarket.ReceiptPrinter;
 import fr.esiea.supermarket.model.*;
+import fr.esiea.supermarket.model.offers.SpecialOfferType;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 

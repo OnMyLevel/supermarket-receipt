@@ -1,6 +1,7 @@
 package fr.esiea;
 
 import fr.esiea.supermarket.model.*;
+import fr.esiea.supermarket.model.offers.SpecialOfferType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
