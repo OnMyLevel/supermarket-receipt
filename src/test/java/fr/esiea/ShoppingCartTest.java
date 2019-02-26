@@ -71,5 +71,16 @@ public class ShoppingCartTest {
         Assertions.assertNotNull(teller.toString());
     }
 
+    @Test
+    public void testDeleteItem() {
+        SupermarketCatalog catalog = new FakeCatalog();
+        Product rasoir = new Product("Rasoir", ProductUnit.Each);
+        catalog.addProduct(rasoir, 1.50);
+        ShoppingCart cart = new ShoppingCart();
+        cart.addItemQuantity(rasoir, 2);
+        cart.deleteItem(rasoir);
+        cart.deleteItemQuantity(rasoir,1);
+    }
+
 
 }
