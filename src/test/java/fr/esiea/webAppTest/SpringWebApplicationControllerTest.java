@@ -55,7 +55,7 @@ class SpringWebApplicationControllerTest {
         Assertions.assertNotNull(test.activeOffre("Book","ThreeForTwo","2.0"));
         Assertions.assertNotNull(test.activeOffre("Pen","FiveForAmount","1.0"));
         Assertions.assertNotNull(test.activeOffre("Pen","TwoForAmount","3.0"));
-        Assertions.assertNotNull(test.activeOffre("Pen","TenPercentDiscountOffer","1.0"));
+        Assertions.assertNotNull(test.activeOffre("Pen","TenPercentDiscount","1.0"));
     }
 
     @Test
