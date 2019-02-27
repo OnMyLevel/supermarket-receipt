@@ -58,7 +58,7 @@ public class SpringWebApplicationController {
     }
 
     @RequestMapping("/list_product")
-    public List<Product> listUsers() {
+    public List<Product> listProduct() {
         List<Product>  products = new ArrayList<Product>(this.databaseProduct.getProducts().values());
         LOGGER.info(products.toString());
         return products;
