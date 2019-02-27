@@ -6,9 +6,9 @@
 
 Auteurs
 
-BANZOUZI Christanis Meril
-Ilyess Marouf
-AZLOUK  Amine
+BANZOUZI Christanis Meril,
+Ilyess Marouf,
+AZLOUK  Amine,
 
 Avancée projet:
 TP1 : [x]
