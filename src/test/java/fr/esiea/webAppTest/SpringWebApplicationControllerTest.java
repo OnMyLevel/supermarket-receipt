@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 
 
 class SpringWebApplicationControllerTest {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(SpringWebApplicationController.class);
    SpringWebApplicationController test = new SpringWebApplicationController();
 
@@ -43,7 +44,7 @@ class SpringWebApplicationControllerTest {
     void listProduct() {
         Assertions.assertNotNull(test.createProduct("Book","6.00","Each"));
         Assertions.assertNotNull(test.createProduct("Rasoir","4.00","Each"));
-        Assertions.assertNotNull(test.listProduct());
+        Assertions.assertNotNull(test.listProducts());
     }
 
     @Test
@@ -51,17 +52,18 @@ class SpringWebApplicationControllerTest {
         Assertions.assertNotNull(test.createProduct("Book","6.00","Each"));
         Assertions.assertNotNull(test.createProduct("Rasoir","4.00","Each"));
         Assertions.assertNotNull(test.createProduct("Pen","7.00","Each"));
-        Assertions.assertNotNull(test.activationOffre("Book","ThreeForTwo","2.0"));
-        Assertions.assertNotNull(test.activationOffre("Pen","FiveForAmount","1.0"));
-        Assertions.assertNotNull(test.activationOffre("Pen","TwoForAmount","3.0"));
+        Assertions.assertNotNull(test.activeOffre("Book","ThreeForTwo","2.0"));
+        Assertions.assertNotNull(test.activeOffre("Pen","FiveForAmount","1.0"));
+        Assertions.assertNotNull(test.activeOffre("Pen","TwoForAmount","3.0"));
+        Assertions.assertNotNull(test.activeOffre("Pen","TenPercentDiscountOffer","1.0"));
     }
 
     @Test
     void desactivationOffre() {
         Assertions.assertNotNull(test.createProduct("Book","6.00","Each"));
         Assertions.assertNotNull(test.createProduct("Rasoir","4.00","Each"));
-        Assertions.assertNotNull(test.activationOffre("Book","ThreeForTwo","2.0"));
-        Assertions.assertNotNull(test.desactivationOffre("Boock"));
+        Assertions.assertNotNull(test.activeOffre("Book","ThreeForTwo","2.0"));
+        Assertions.assertNotNull(test.deactivationOffre("Boock"));
     }
 
     @Test
@@ -73,7 +75,7 @@ class SpringWebApplicationControllerTest {
     void clientAddProduct() {
         Assertions.assertNotNull(test.createProduct("Book","6.00","Each"));
         Assertions.assertNotNull(test.createProduct("Rasoir","4.00","Each"));
-        Assertions.assertNotNull(test.activationOffre("Book","ThreeForTwo","2.0"));
+        Assertions.assertNotNull(test.activeOffre("Book","ThreeForTwo","2.0"));
         Assertions.assertNotNull(test.createClient("4"));
         Assertions.assertNotNull(test.clientAddProduct("4","Book"));
     }
@@ -82,7 +84,7 @@ class SpringWebApplicationControllerTest {
     void clientDeleteProduct() {
         Assertions.assertNotNull(test.createProduct("Book","6.00","Each"));
         Assertions.assertNotNull(test.createProduct("Rasoir","4.00","Each"));
-        Assertions.assertNotNull(test.activationOffre("Book","ThreeForTwo","2.0"));
+        Assertions.assertNotNull(test.activeOffre("Book","ThreeForTwo","2.0"));
         Assertions.assertNotNull(test.createClient("4"));
         Assertions.assertNotNull(test.clientAddProduct("4","Book"));
         Assertions.assertNotNull(test.clientDeleteProduct("4","Book","1.0"));
@@ -92,18 +94,17 @@ class SpringWebApplicationControllerTest {
     void checkCartPrinClient() {
         Assertions.assertNotNull(test.createProduct("Book","6.00","Each"));
         Assertions.assertNotNull(test.createProduct("Rasoir","4.00","Each"));
-        Assertions.assertNotNull(test.activationOffre("Book","ThreeForTwo","2.0"));
+        Assertions.assertNotNull(test.activeOffre("Book","ThreeForTwo","2.0"));
         Assertions.assertNotNull(test.createClient("1"));
         Assertions.assertNotNull(test.clientAddProduct("1","Book"));
-        Assertions.assertNotNull(test.checkCartPrice("1"));
-
+        Assertions.assertNotNull(test.checkCartPriceClient("1"));
     }
 
     @Test
     void checkCartPrice() {
         Assertions.assertNotNull(test.createProduct("Book","6.00","Each"));
         Assertions.assertNotNull(test.createProduct("Rasoir","4.00","Each"));
-        Assertions.assertNotNull(test.activationOffre("Book","ThreeForTwo","1.0"));
+        Assertions.assertNotNull(test.activeOffre("Book","ThreeForTwo","1.0"));
         Assertions.assertNotNull(test.createClient("1"));
         Assertions.assertNotNull(test.clientAddProduct("1","Book"));
         Assertions.assertNotNull(test.checkCartPrinClient("1"));

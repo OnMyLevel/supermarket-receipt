@@ -15,11 +15,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-
-/**
- * Sample web application.<br/>
- * Run {@link #main(String[])} to launch.
- */
 @RestController
 public class SpringWebApplicationController {
 
@@ -58,18 +53,19 @@ public class SpringWebApplicationController {
     }
 
     @RequestMapping("/list_product")
-    public List<Product> listProduct() {
+    public List<Product> listProducts() {
         List<Product>  products = new ArrayList<Product>(this.databaseProduct.getProducts().values());
         LOGGER.info(products.toString());
         return products;
     }
     public static void main(String[] args) {
+
         SpringApplication.run(SpringWebApplicationController.class);
     }
 
     @RequestMapping("/on_offer")
-    public String activationOffre(@RequestParam("nameProduct")String nameProduct
-        ,@RequestParam("typeOffer") String typeOffer, @RequestParam("argOffer") String argOffer) {
+    public String activeOffre(@RequestParam("nameProduct")String nameProduct
+        , @RequestParam("typeOffer") String typeOffer, @RequestParam("argOffer") String argOffer) {
         Product product= this.databaseProduct.getProduct(nameProduct);
         double argumentOffer= Double.valueOf(argOffer);
         if(typeOffer.compareTo("ThreeForTwo")==0){
@@ -84,7 +80,7 @@ public class SpringWebApplicationController {
     }
 
     @RequestMapping("/off_offer")
-    public String desactivationOffre(@RequestParam("nameProduct")String nameProduct) {
+    public String deactivationOffre(@RequestParam("nameProduct")String nameProduct) {
         Product product= this.databaseProduct.getProduct(nameProduct);
         this.marketTeller.deleteSpecialOffer(product);
         LOGGER.info("NB OFFERS "+this.marketTeller.getOffers().size());
@@ -114,6 +110,7 @@ public class SpringWebApplicationController {
             entrySet().
             toString();
     }
+
     @RequestMapping("/client_delete_product")
     public String clientDeleteProduct(@RequestParam("idClient") String idClient,
                                       @RequestParam("nameProduct") String nameProduct,
@@ -122,7 +119,6 @@ public class SpringWebApplicationController {
         int id = Integer.valueOf(idClient);
         Product product = this.databaseProduct.getProduct(nameProduct);
         this.databaseClients.get(id).deleteItemQuantity(product,nbItem);
-
         LOGGER.info("Shoppingcard client "+this.databaseClients.get(id).
             productQuantities().
             entrySet().
@@ -143,7 +139,7 @@ public class SpringWebApplicationController {
     }
 
     @RequestMapping("/check_price")
-    public String checkCartPrice(@RequestParam("idClient") String idClient) {
+    public String checkCartPriceClient(@RequestParam("idClient") String idClient) {
         int id = Integer.valueOf(idClient);
         Receipt receipt =  this.marketTeller.checksOutArticlesFrom(this.databaseClients.get(id));
         LOGGER.info("PRICE "+receipt.getTotalPrice());

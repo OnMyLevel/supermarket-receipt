@@ -57,7 +57,6 @@ public class ReceiptPrinter {
         return result.toString();
     }
 
-
     private static String presentQuantity(ReceiptItem item) {
         return ProductUnit.Each.equals(item.getProduct().getUnit())
             ? String.format("%x", (int) item.getQuantity())

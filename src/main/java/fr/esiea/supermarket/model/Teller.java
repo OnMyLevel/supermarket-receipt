@@ -38,7 +38,6 @@ public class Teller {
                 this.offers.put(product, new TenPercentDiscountOffer(product, argument));
                 break;
         }
-
     }
 
     public Receipt checksOutArticlesFrom(ShoppingCart theCart) {

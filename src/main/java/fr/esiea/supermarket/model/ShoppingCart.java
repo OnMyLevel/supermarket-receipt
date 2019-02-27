@@ -42,7 +42,7 @@ public class ShoppingCart {
                 productQuantities.put(product, productQuantities.get(product) - quantity);
             }
         } else {
-            System.out.println("se produits n'existe pas");
+            System.out.println("Ce produits n'est dans le panier");
         }
     }
 

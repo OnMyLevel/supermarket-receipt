@@ -10,8 +10,7 @@ import org.junit.jupiter.api.Test;
 public class FakeCatalogTest {
 
     @Test
-    public void testGetProduct()
-    {
+    public void testGetProduct() {
         SupermarketCatalog catalog = new FakeCatalog();
         Product rasoir = new Product("Rasoir", ProductUnit.Each);
         Product boot = new Product("Boot", ProductUnit.Each);
@@ -20,8 +19,7 @@ public class FakeCatalogTest {
     }
 
     @Test
-    public void testGetProducts()
-    {
+    public void testGetProducts() {
         SupermarketCatalog catalog = new FakeCatalog();
         Product rasoir = new Product("Rasoir", ProductUnit.Each);
         Product boot = new Product("Boot", ProductUnit.Each);
@@ -31,8 +29,7 @@ public class FakeCatalogTest {
     }
 
     @Test
-    public void testDeleteProducts()
-    {
+    public void testDeleteProducts(){
         SupermarketCatalog catalog = new FakeCatalog();
         Product rasoir = new Product("Rasoir", ProductUnit.Each);
         catalog.addProduct(rasoir, 1.50);
