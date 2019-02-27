@@ -13,5 +13,5 @@ AZLOUK  Amine,
 Avancée projet:
 TP1 : [x]
 TP2 : [x]
-TP3 : [-]
+TP3 : [X]
 TP4 : [X]
